@@ -76,19 +76,7 @@ public struct SwiftUICropView: UIViewControllerRepresentable {
     
     let controller = _PixelEditor_WrapperViewController.init(bodyView: view)
     
-    if let cropInsideOverlay = cropInsideOverlay {
-      
-      let hosting = UIHostingController.init(rootView: cropInsideOverlay)
-      
-      hosting.view.backgroundColor = .clear
-      hosting.view.preservesSuperviewLayoutMargins = false
-      
-      view.setCropInsideOverlay(CropView.SwiftUICropInsideOverlay(controller: hosting))
-      
-      controller.addChild(hosting)
-      hosting.didMove(toParent: controller)
-    }
-    onCropViewCreated(cropView: view)
+    onCropViewCreated(view)
         
     return controller
   }
