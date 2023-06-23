@@ -55,13 +55,13 @@ public struct SwiftUICropView: UIViewControllerRepresentable {
   
   public typealias UIViewControllerType = _PixelEditor_WrapperViewController<CropView>
 
-  private let onCropViewCreated: (_ cropView: CropView) -> Void
+  private let onCropViewCreated: (CropView) -> Void
   
   private let factory: () -> CropView
   
   public init(
     editingStack: EditingStack,
-    onCropViewCreated: @escaping (_ cropView: CropView) -> Void
+    onCropViewCreated: @escaping (CropView) -> Void
   ) {
     self.onCropViewCreated = onCropViewCreated
     
