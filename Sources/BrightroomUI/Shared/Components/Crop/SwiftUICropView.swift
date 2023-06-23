@@ -54,16 +54,16 @@ public final class _PixelEditor_WrapperViewController<BodyView: UIView>: UIViewC
 public struct SwiftUICropView: UIViewControllerRepresentable {
   
   public typealias UIViewControllerType = _PixelEditor_WrapperViewController<CropView>
-      
-  private let cropInsideOverlay: AnyView?
+
+  private let onCropViewCreated: (_ cropView: CropView) -> Void
   
   private let factory: () -> CropView
   
   public init(
     editingStack: EditingStack,
-    cropInsideOverlay: AnyView? = nil
+    onCropViewCreated: (_ cropView: CropView) -> Void
   ) {
-    self.cropInsideOverlay = cropInsideOverlay
+    self.onCropViewCreated = onCropViewCreated
     
     self.factory = {
       CropView(editingStack: editingStack)
@@ -88,6 +88,7 @@ public struct SwiftUICropView: UIViewControllerRepresentable {
       controller.addChild(hosting)
       hosting.didMove(toParent: controller)
     }
+    onCropViewCreated(cropView: view)
         
     return controller
   }
