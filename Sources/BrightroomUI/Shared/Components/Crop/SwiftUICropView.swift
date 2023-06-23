@@ -61,7 +61,7 @@ public struct SwiftUICropView: UIViewControllerRepresentable {
   
   public init(
     editingStack: EditingStack,
-    onCropViewCreated: (_ cropView: CropView) -> Void
+    onCropViewCreated: @escaping (_ cropView: CropView) -> Void
   ) {
     self.onCropViewCreated = onCropViewCreated
     
