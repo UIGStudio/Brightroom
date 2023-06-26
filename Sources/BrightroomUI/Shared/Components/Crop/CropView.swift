@@ -191,12 +191,12 @@ public final class CropView: UIView, UIScrollViewDelegate {
     defaultAppearance: do {
       setCropInsideOverlay(CropView.CropInsideOverlayRuleOfThirdsView())
       setCropOutsideOverlay(CropView.CropOutsideOverlayBlurredView(
-          blurEffect: UIBlurEffect(style: traitCollection.userInterfaceStyle == .light ? .light : .dark),
-          dimmingColor: UIColor.init(white: traitCollection.userInterfaceStyle == .light ? 1 : 0, alpha: 0.6)
+          blurEffect: UIBlurEffect(style: UITraitCollection.current.userInterfaceStyle == .light ? .light : .dark),
+          dimmingColor: UIColor.init(white: UITraitCollection.current.userInterfaceStyle == .light ? 1 : 0, alpha: 0.6)
       ))
       setLoadingOverlay(factory: {
         LoadingBlurryOverlayView(
-            effect: UIBlurEffect(style: traitCollection.userInterfaceStyle == .light ? .light : .dark),
+            effect: UIBlurEffect(style: UITraitCollection.current.userInterfaceStyle == .light ? .light : .dark),
             activityIndicatorStyle: .large
         )
       })
