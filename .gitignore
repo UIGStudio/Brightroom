@@ -10,6 +10,9 @@
 build/
 DerivedData/
 
+.build
+.idea
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
